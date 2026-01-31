@@ -1,0 +1,15 @@
+INFO:     Started server process [16296]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8012 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50361 - "POST /internal/vote HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50361 - "POST /internal/heartbeat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50361 - "POST /internal/heartbeat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50361 - "POST /internal/heartbeat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50361 - "POST /internal/replicate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50361 - "POST /internal/heartbeat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50361 - "POST /internal/heartbeat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50372 - "GET /debug/info HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50373 - "GET /get/rep_key HTTP/1.1" 200 OK
+Replication connection error to http://127.0.0.1:8011: 
+INFO:     127.0.0.1:50373 - "POST /set HTTP/1.1" 200 OK

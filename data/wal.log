@@ -1,0 +1,4 @@
+{"op": "SET", "k": "my_key", "v": "Hello World"}
+{"op": "BULK", "data": [["user:1", {"name": "Alice", "role": "admin"}], ["user:2", {"name": "Bob", "role": "dev"}], ["user:3", {"name": "Charlie", "role": "manager"}]]}
+{"op": "DEL", "k": "my_key"}
+{"op": "SET", "k": "string", "v": "string"}

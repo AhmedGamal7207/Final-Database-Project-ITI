@@ -1,0 +1,58 @@
+Task:
+
+    Write this in python
+    Build a key value store that supports Set, Get, Delete, Bulk Set
+    The data has to be persistent across restarts
+    It has to be built on top of TCP (HTTP is ok or any other thing built on top of TCP)
+    Create a client for this database, the client is a class that has these methods (Get(key), Set(key, value), Delete(key) and BulkSet([(key, value)]))
+    Tests and benchmarks have to use the client you wrote
+    Write tests to test common scenarios, make sure it covers:
+
+    Set then Get
+    Set then Delete the Get
+    Get without setting
+    Set then Set (same key) then Get
+    Set then exit (gracefully) then Get
+
+    Write benchmarks
+
+    To calculate the write throughput, (how many writes per second) it has to test this with pre-populated data and see how this changes with more data
+    To calculate durability:
+
+    Run a thread to add data and check what you received acknowledge for
+    Run another thread that kills the db randomly
+    Check which of the acknowledged keys are lost after starting again
+
+    Optimize for 100% durability and high write throughput
+    ==========================
+    Benchmark ACID principles
+
+    Ensure your tests include concurrent bulk set writes touching the same keys and ensure they don’t affect each others
+    Ensure your tests include bulk writes and kill the server randomly, ensure it’s completely applied or not
+
+    For killing, make sure to use process.kill (SIG_KILL, -9).
+    Bonus:
+
+    For testing add a debug parameter to set and bulk set that make write calls randomly happen or not (to simulate file system synchronization issues in case of power outage). Except for WAL since it happens synchronously. (Ex. 1% chance) example:
+       def _save(self, parameter):
+           """Save data to disk."""
+           if parameter:
+               if random.random() < 0.01:
+                   return
+           with open(self._data_file, "w") as f:
+               json.dump(self._data, f)
+     
+
+    ====================================
+    Change your db to run in clusters (replication) of three where one is primary and two are secondary
+    Replicate the primary to secondary
+    Writes and reads happen only to primary
+    In case the primary goes down, elections happen and one of the secondaries become primary
+    Write tests to make sure that this happens
+    ====================================
+    Build indexes (on the value)
+
+    Invented index (full text search)
+    Word embedding
+
+    Convert the replication to master-less
