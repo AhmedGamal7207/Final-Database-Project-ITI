@@ -9,6 +9,8 @@ Track: AI - Intake 46 - Alexandria
 
 Subject: Final Database Project Submission
 
+NOTE: you can try the whole project by following the HOW TO TEST PROJECT section instructions
+
 ## Features
 
 - **Core**: Set, Get, Delete, Bulk Set.
